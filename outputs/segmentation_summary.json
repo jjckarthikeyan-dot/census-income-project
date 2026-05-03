@@ -1,0 +1,29 @@
+{
+  "model": "MiniBatchKMeans with OneHotEncoder and TruncatedSVD",
+  "n_segments": 5,
+  "fit_sample_size": 40000,
+  "profile_sample_size": 80000,
+  "silhouette_sample_size": 10000,
+  "silhouette_score": 0.2909,
+  "inertia": 244551.68,
+  "numeric_features": [
+    "age",
+    "capital gains",
+    "capital losses",
+    "dividends from stocks",
+    "num persons worked for employer",
+    "weeks worked in year",
+    "own business or self employed"
+  ],
+  "categorical_features": [
+    "education",
+    "class of worker",
+    "marital stat",
+    "major industry code",
+    "major occupation code",
+    "sex",
+    "race",
+    "full or part time employment stat"
+  ],
+  "business_note": "Segments were created using demographic and employment features only. Income label and observation weight were not used as clustering inputs."
+}

@@ -1,0 +1,137 @@
+{
+  "accuracy": 0.8766329137515452,
+  "balanced_accuracy": 0.8829151088114537,
+  "roc_auc": 0.9544369126166586,
+  "average_precision_pr_auc": 0.6837097404153454,
+  "confusion_matrix_unweighted": [
+    [
+      32811,
+      4618
+    ],
+    [
+      278,
+      2198
+    ]
+  ],
+  "classification_report_unweighted": {
+    "<=50K": {
+      "precision": 0.9915984163921545,
+      "recall": 0.8766197333618317,
+      "f1-score": 0.9305709180634731,
+      "support": 37429.0
+    },
+    ">50K": {
+      "precision": 0.32247652582159625,
+      "recall": 0.8877221324717286,
+      "f1-score": 0.4730951356005166,
+      "support": 2476.0
+    },
+    "accuracy": 0.8773086079438667,
+    "macro avg": {
+      "precision": 0.6570374711068754,
+      "recall": 0.8821709329167802,
+      "f1-score": 0.7018330268319949,
+      "support": 39905.0
+    },
+    "weighted avg": {
+      "precision": 0.9500811679006695,
+      "recall": 0.8773086079438667,
+      "f1-score": 0.9021857523604715,
+      "support": 39905.0
+    }
+  },
+  "rows": 199523,
+  "positive_rate_gt_50k": 0.06205800834991455,
+  "categorical_features": [
+    "class of worker",
+    "education",
+    "enroll in edu inst last wk",
+    "marital stat",
+    "major industry code",
+    "major occupation code",
+    "race",
+    "hispanic origin",
+    "sex",
+    "member of a labor union",
+    "reason for unemployment",
+    "full or part time employment stat",
+    "tax filer stat",
+    "region of previous residence",
+    "state of previous residence",
+    "detailed household and family stat",
+    "detailed household summary in household",
+    "migration code-change in msa",
+    "migration code-change in reg",
+    "migration code-move within reg",
+    "live in this house 1 year ago",
+    "migration prev res in sunbelt",
+    "family members under 18",
+    "country of birth father",
+    "country of birth mother",
+    "country of birth self",
+    "citizenship",
+    "fill inc questionnaire for veteran's admin"
+  ],
+  "top_15_features": [
+    {
+      "feature": "family members under 18",
+      "importance": 13.383231052597521
+    },
+    {
+      "feature": "veterans benefits",
+      "importance": 12.964110199898137
+    },
+    {
+      "feature": "age",
+      "importance": 9.151497062186143
+    },
+    {
+      "feature": "tax filer stat",
+      "importance": 8.144218142577527
+    },
+    {
+      "feature": "detailed household summary in household",
+      "importance": 8.044561794025508
+    },
+    {
+      "feature": "education",
+      "importance": 4.506275900517614
+    },
+    {
+      "feature": "major occupation code",
+      "importance": 4.341705702064523
+    },
+    {
+      "feature": "detailed household and family stat",
+      "importance": 4.120476710544444
+    },
+    {
+      "feature": "dividends from stocks",
+      "importance": 3.6049638457425246
+    },
+    {
+      "feature": "weeks worked in year",
+      "importance": 3.5009578304476685
+    },
+    {
+      "feature": "sex",
+      "importance": 3.290281168449619
+    },
+    {
+      "feature": "major industry code",
+      "importance": 2.604429458167932
+    },
+    {
+      "feature": "class of worker",
+      "importance": 2.471121816052742
+    },
+    {
+      "feature": "capital gains",
+      "importance": 2.3006929755411285
+    },
+    {
+      "feature": "num persons worked for employer",
+      "importance": 2.077733960178723
+    }
+  ]
+}
