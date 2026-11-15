@@ -17,55 +17,55 @@ This is an analytical demonstration, not a production decision-making system. De
 
 | Path | Purpose |
 | --- | --- |
-| \`src/train_classifier.py\` | Classification workflow |
-| \`src/segmentation.py\` | Segmentation workflow |
-| \`requirements.txt\` | Python dependencies |
-| \`REPORT.md\` | Detailed methodology and interpretation |
-| \`outputs/\` | Generated model and analysis artifacts |
+| `src/train_classifier.py` | Classification workflow |
+| `src/segmentation.py` | Segmentation workflow |
+| `requirements.txt` | Python dependencies |
+| `REPORT.md` | Detailed methodology and interpretation |
+| `outputs/` | Generated model and analysis artifacts |
 
 ## Quick start
 
-\`\`\`bash
+```bash
 git clone https://github.com/jjckarthikeyan-dot/census-income-project.git
 cd census-income-project
 python -m venv .venv
-\`\`\`
+```
 
 Activate the environment:
 
-- macOS/Linux: \`source .venv/bin/activate\`
-- Windows PowerShell: \`.venv\Scripts\Activate.ps1\`
+- macOS/Linux: `source .venv/bin/activate`
+- Windows PowerShell: `.venv\Scripts\Activate.ps1`
 
 Install dependencies:
 
-\`\`\`bash
+```bash
 pip install -r requirements.txt
-\`\`\`
+```
 
-Place the source dataset in the \`data/\` directory, including:
+Place the source dataset in the `data/` directory, including:
 
-\`\`\`text
+```text
 data/census-bureau.data
 data/census-bureau.columns
-\`\`\`
+```
 
 ## Run the workflows
 
-\`\`\`bash
+```bash
 python src/train_classifier.py
 python src/segmentation.py
-\`\`\`
+```
 
 The workflows are documented as producing:
 
 | Artifact | Purpose |
 | --- | --- |
-| \`outputs/classification_metrics.json\` | Classification evaluation |
-| \`outputs/feature_importance.csv\` | Model feature interpretation |
-| \`outputs/income_classifier.joblib\` | Serialized classifier |
-| \`outputs/segment_profile.csv\` | Segment characteristics |
-| \`outputs/segmentation_summary.json\` | Segmentation summary |
-| \`outputs/census_with_segments_sample.csv\` | Sample labeled observations |
+| `outputs/classification_metrics.json` | Classification evaluation |
+| `outputs/feature_importance.csv` | Model feature interpretation |
+| `outputs/income_classifier.joblib` | Serialized classifier |
+| `outputs/segment_profile.csv` | Segment characteristics |
+| `outputs/segmentation_summary.json` | Segmentation summary |
+| `outputs/census_with_segments_sample.csv` | Sample labeled observations |
 
 Generated file availability depends on successful execution and the dataset provided. See [REPORT.md](REPORT.md) for further details.
 
