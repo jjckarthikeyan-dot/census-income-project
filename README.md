@@ -1,164 +1,82 @@
-# Census Income Classification & Customer Segmentation
+# Census Income Classification and Customer Segmentation
 
-## Overview
+**Python · Machine Learning · Data Analysis**
 
-In this project, I worked with U.S. Census data to solve a practical business problem for a retail client.
+A portfolio project using U.S. Census data to explore two questions: can income groups be classified from demographic and employment features, and what meaningful population segments can be identified without using the income label?
 
-The main idea was simple:
+## What this project covers
 
-* Can we predict whether someone earns more than $50K?
-* Can we group customers into meaningful segments for marketing?
+- **Classification:** predict whether an observation falls above the $50K income threshold.
+- **Segmentation:** group observations using their characteristics, without using the income target for clustering.
+- **Evaluation:** examine class imbalance and sample weights, alongside ROC-AUC, PR-AUC, and balanced accuracy.
+- **Reporting:** export model metrics, feature importance, and segment profiles for inspection.
 
-The dataset includes demographic and employment-related details such as age, education, occupation, and work status. It also includes a **weight column**, since the data comes from a sampled population.
+This is an analytical demonstration, not a production decision-making system. Demographic predictions should not be used to determine eligibility for jobs, credit, housing, or other high-impact services.
 
----
+## Repository layout
 
-## Project Structure
+| Path | Purpose |
+| --- | --- |
+| \`src/train_classifier.py\` | Classification workflow |
+| \`src/segmentation.py\` | Segmentation workflow |
+| \`requirements.txt\` | Python dependencies |
+| \`REPORT.md\` | Detailed methodology and interpretation |
+| \`outputs/\` | Generated model and analysis artifacts |
 
-```
-census_income_project/
-  data/
-    census-bureau.data
-    census-bureau.columns
-  src/
-    train_classifier.py
-    segmentation.py
-  outputs/
-  requirements.txt
-  REPORT.md
-  README.md
-```
+## Quick start
 
----
-
-## Setup
-
-First, create a virtual environment:
-
+\`\`\`bash
+git clone https://github.com/jjckarthikeyan-dot/census-income-project.git
+cd census-income-project
 python -m venv .venv
+\`\`\`
 
-Activate it:
+Activate the environment:
 
-**Windows (CMD):**
-
-
-.venv\Scripts\activate
-
+- macOS/Linux: \`source .venv/bin/activate\`
+- Windows PowerShell: \`.venv\Scripts\Activate.ps1\`
 
 Install dependencies:
 
+\`\`\`bash
 pip install -r requirements.txt
+\`\`\`
 
----
+Place the source dataset in the \`data/\` directory, including:
 
-## Data Setup
-
-Create a folder named `data` in the project root and place the two files inside it:
-
+\`\`\`text
 data/census-bureau.data
 data/census-bureau.columns
+\`\`\`
 
----
+## Run the workflows
 
-## Running the Classification Model
-
+\`\`\`bash
 python src/train_classifier.py
-
-This script trains a model that predicts whether a person belongs to the `<=50K` or `>50K` income group.
-
-### Outputs
-
-outputs/income_classifier.joblib
-outputs/classification_metrics.json
-outputs/feature_importance.csv
-
-### Notes
-
-* I used the `weight` column during training and evaluation because the dataset represents a sampled population.
-* Instead of focusing only on accuracy, I used metrics like:
-
-  * ROC-AUC
-  * Precision-Recall (PR-AUC)
-  * Balanced Accuracy
-
-This is important because the `>50K` group is smaller, and accuracy alone can be misleading.
-
----
-
-## Running the Segmentation Model
 python src/segmentation.py
+\`\`\`
 
+The workflows are documented as producing:
 
-This script groups customers into segments based on demographic and employment-related features.
+| Artifact | Purpose |
+| --- | --- |
+| \`outputs/classification_metrics.json\` | Classification evaluation |
+| \`outputs/feature_importance.csv\` | Model feature interpretation |
+| \`outputs/income_classifier.joblib\` | Serialized classifier |
+| \`outputs/segment_profile.csv\` | Segment characteristics |
+| \`outputs/segmentation_summary.json\` | Segmentation summary |
+| \`outputs/census_with_segments_sample.csv\` | Sample labeled observations |
 
-### Outputs
-outputs/segment_profile.csv
-outputs/segmentation_summary.json
-outputs/census_with_segments_sample.csv
+Generated file availability depends on successful execution and the dataset provided. See [REPORT.md](REPORT.md) for further details.
 
----
+## Engineering considerations
 
-## Approach
+Sample weighting and imbalanced classes matter when interpreting Census-based predictions. Classification performance should be evaluated beyond raw accuracy. The clustering workflow intentionally separates descriptive segmentation from supervised income prediction.
 
-### 1. Classification
-For the classification task, I built a model that learns patterns from features such as:
+## Project status
 
-* age
-* education
-* occupation
-* work status
+Portfolio / research demonstration. No production deployment or externally validated performance claims are made here.
 
-and predicts whether someone is likely to earn more than $50K.
+## Author
 
-I treated this as a real-world problem, so I considered:
-
-* class imbalance
-* weighted data
-* business relevance of predictions
-
----
-
-### 2. Segmentation
-
-For segmentation, I did something different.
-
-I **did not use the income label during training**.
-Instead, I grouped people based on their characteristics.
-
-After creating the segments, I analyzed:
-
-* how income varies across segments
-* what defines each group
-
-This makes the segmentation more useful for real marketing use cases.
-
----
-## Business Value
-
-From a business perspective, this project can help the client:
-
-* identify high-income customers for premium targeting
-* understand budget-sensitive groups
-* design personalized campaigns
-* improve customer engagement strategies
-
-Each segment behaves differently, so marketing strategies can be tailored accordingly.
-
----
-## Key Files
-
-| File                                  | Description                                  |
-| ------------------------------------- | -------------------------------------------- |
-| `src/train_classifier.py`             | trains and evaluates income prediction model |
-| `src/segmentation.py`                 | builds customer segments                     |
-| `outputs/classification_metrics.json` | model performance                            |
-| `outputs/feature_importance.csv`      | important features                           |
-| `outputs/segment_profile.csv`         | segment summary                              |
-| `REPORT.md`                           | detailed project explanation                 |
-
----
-
-## Final Note
-I focused on building a solution that is not just technically correct, but also useful from a business perspective.
-
-The goal was to understand the data, make reasonable modeling decisions, and explain the results in a way that a non-technical stakeholder can understand.
+[Karthikeyan Jammalamadaka](https://github.com/jjckarthikeyan-dot)
